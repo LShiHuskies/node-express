@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ pageTitle }}</title>
+    <link rel="stylesheet" href="/css/main.css">
+    {{#if formCSS }}
+        <link rel="stylesheet" href="/css/forms.css">
+    {{/if}}
+    {{#if productCSS }}
+        <link rel="stylesheet" href="/css/product.css">
+    {{/if}}
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+          <li class="main-header__item"><a class="{{#if activeShop }}active {{/if}} " href="/">Shop</a></li>
+          <li class="main-header__item"><a class="{{#if activeAddProduct }}active {{/if}} " href="/add-product">Add Product</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    {{{ body }}}
+  </body>
+</html>
