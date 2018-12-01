@@ -8,7 +8,7 @@ const path = require('path');
 // const routes = require('./routes');
 const app = express();
 
-const adminRoutes = require('./routes/admin');
+const adminData = require('./routes/admin');
 
 const shopRoutes = require('./routes/shop');
 
@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   res.redirect('/');
 // });
 
-app.use(adminRoutes);
+app.use('/', adminData.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
