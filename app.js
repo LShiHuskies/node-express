@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 
 const express = require('express');
 
+const path = require('path');
+
 // const routes = require('./routes');
 const app = express();
 
@@ -16,6 +18,7 @@ const shopRoutes = require('./routes/shop');
 // });
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/add-product', (req, res, next) => {
 //     res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button> </input> </form>')
@@ -30,7 +33,8 @@ app.use(adminRoutes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
-  res.status(404).send('<h1>Page not found<h1>');
+  // res.status(404).send('<h1>Page not found<h1>');
+  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
 });
 
 
